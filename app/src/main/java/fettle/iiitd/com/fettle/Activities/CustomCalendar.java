@@ -37,6 +37,7 @@ import java.util.Map;
 import java.util.TimeZone;
 
 import fettle.iiitd.com.fettle.Classes.Dish;
+import fettle.iiitd.com.fettle.Classes.Exercise;
 import fettle.iiitd.com.fettle.Classes.Utils;
 import fettle.iiitd.com.fettle.R;
 import hirondelle.date4j.DateTime;
@@ -50,6 +51,7 @@ import static fettle.iiitd.com.fettle.R.drawable.circular_calendar_under;
 public class CustomCalendar extends AppCompatActivity {
 
     public static List<Dish> moreDishes = new ArrayList<>();
+    public static List<Exercise> allExercises = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -161,6 +163,7 @@ public class CustomCalendar extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
 
+                        //dishes
                         List<ParseObject> lPo = new ArrayList<>();
                         final List<Dish> lDish = new ArrayList<>();
 
@@ -172,8 +175,8 @@ public class CustomCalendar extends AppCompatActivity {
                         Date endDate = calendar.getTime();
                         ParseQuery<ParseObject> parseQuery = new ParseQuery<ParseObject>("FoodIntake");
                         parseQuery.whereEqualTo("user", ParseUser.getCurrentUser());
-                        parseQuery.whereGreaterThan("createdAt", startDate);
-                        parseQuery.whereLessThan("createdAt", endDate);
+                        parseQuery.whereGreaterThan("CreatedAt", startDate);
+                        parseQuery.whereLessThan("CreatedAt", endDate);
 
                         try {
                             lPo = parseQuery.find();
@@ -185,9 +188,31 @@ public class CustomCalendar extends AppCompatActivity {
                         }
                         moreDishes.clear();
                         moreDishes.addAll(lDish);
+
+                        //exercises
+                        lPo = new ArrayList<>();
+                        final List<Exercise> lExercise = new ArrayList<>();
+
+                        parseQuery = new ParseQuery<ParseObject>("Activity");
+                        parseQuery.whereEqualTo("user", ParseUser.getCurrentUser());
+                        parseQuery.whereGreaterThan("CreatedAt", startDate);
+                        parseQuery.whereLessThan("CreatedAt", endDate);
+
+                        try {
+                            lPo = parseQuery.find();
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                        for (ParseObject each : lPo) {
+                            lExercise.add(new Exercise(each));
+                        }
+                        allExercises.clear();
+                        allExercises.addAll(lExercise);
+
                         Log.d(TAG, "clicked:" + dateTime.toString());
                         Intent intent = new Intent(context, DayOverview.class);
                         intent.putExtra("calendar", true);
+                        intent.putExtra("date", dateTime.getMilliseconds(TimeZone.getDefault()));
                         context.startActivity(intent);
                     }
                 });

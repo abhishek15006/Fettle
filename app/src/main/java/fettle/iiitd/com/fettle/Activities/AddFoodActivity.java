@@ -43,15 +43,16 @@ public class AddFoodActivity extends AppCompatActivity {
 
     private static final String TAG = "AddFoodActivity";
     CardArrayRecyclerViewAdapter rcAdapter;
+
     List<Dish> dishes;
     List<Dish> dishesBreakfast = new ArrayList<>();
     List<Dish> dishesLunch = new ArrayList<>();
     List<Dish> dishesDinner = new ArrayList<>();
-    List<String> breakfastDishIds = Arrays.asList("xtHmufoCKq","091YLZpUeZ","shFy4OjFnU","23tITNAj4s","jUV5amPs4L","zO7JoyUv7A","ZUTc2EFVAj","QZT5gnKjde","A9DFj9ejNT"
-);
-    List<String> lunchDishIds = Arrays.asList("PY5Bfv6NUC","Lp9c7eq2jl","9MG5JiPZpD","PiaCpWf2Mk","ADTpNFif3w","gPu9VXjIHm","FBrFrejA0S","qco62Shv53","66DaBrT83m","RBJp219SUu"
-);
-    List<String> dinnerDishIds = Arrays.asList("0syjCV7wxK","6t940cX36M","OCkjFr00TA","HyXKMqXFSF","CB2BhxEuhc","QF4uQVvRC4","ewJlWDKmLx","gPu9VXjIHm","FBrFrejA0S","zbwWGX516h");
+
+    List<String> breakfastDishIds = Arrays.asList("xtHmufoCKq", "091YLZpUeZ", "shFy4OjFnU", "23tITNAj4s", "jUV5amPs4L", "zO7JoyUv7A", "ZUTc2EFVAj", "QZT5gnKjde", "A9DFj9ejNT");
+    List<String> lunchDishIds = Arrays.asList("PY5Bfv6NUC", "Lp9c7eq2jl", "9MG5JiPZpD", "PiaCpWf2Mk", "ADTpNFif3w", "gPu9VXjIHm", "FBrFrejA0S", "qco62Shv53", "66DaBrT83m", "RBJp219SUu");
+    List<String> dinnerDishIds = Arrays.asList("0syjCV7wxK", "6t940cX36M", "OCkjFr00TA", "HyXKMqXFSF", "CB2BhxEuhc", "QF4uQVvRC4", "ewJlWDKmLx", "gPu9VXjIHm", "FBrFrejA0S", "zbwWGX516h");
+
     private List<String> meals = Arrays.asList(new String[]{"Breakfast", "Lunch", "Dinner"});
     private int[] drawables = new int[]{R.drawable.breakfast, R.drawable.lunch, R.drawable.dinner};
 
@@ -95,7 +96,6 @@ public class AddFoodActivity extends AppCompatActivity {
         }
 
         for (ParseObject each : lPo) {
-            dishes.add(new Dish(each));
             if (breakfastDishIds.contains(each.getObjectId()))
                 dishesBreakfast.add(new Dish(each));
             if (lunchDishIds.contains(each.getObjectId()))
@@ -103,6 +103,7 @@ public class AddFoodActivity extends AppCompatActivity {
             if (dinnerDishIds.contains(each.getObjectId()))
                 dishesDinner.add(new Dish(each));
         }
+        dishes.addAll(dishesBreakfast);
 
     }
 

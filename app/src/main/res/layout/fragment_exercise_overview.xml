@@ -14,10 +14,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:paddingBottom="16dp">
+            android:padding="16dp">
 
             <ImageView
-                android:id="@+id/standing"
+                android:id="@+id/imExercise1"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginLeft="40dp"
@@ -33,7 +33,7 @@
                 android:textSize="22sp" />
 
             <TextView
-                android:id="@+id/walkCal"
+                android:id="@+id/cal1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -52,37 +52,37 @@
         android:layout_margin="8dp">
 
         <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:padding="16dp">
 
-        <ImageView
-            android:id="@+id/workout_image"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginLeft="40dp"
-            android:src="@drawable/workout" />
+            <ImageView
+                android:id="@+id/imExercise2"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="40dp"
+                android:src="@drawable/workout" />
 
-        <TextView
-            android:id="@+id/time2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="16dp"
-            android:text="30 Mins"
-            android:textSize="22sp" />
+            <TextView
+                android:id="@+id/time2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="16dp"
+                android:text="30 Mins"
+                android:textSize="22sp" />
 
-        <TextView
-            android:id="@+id/runCal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/time2"
-            android:layout_marginRight="16dp"
-            android:text="200 cals"
-            android:textSize="22sp" />
+            <TextView
+                android:id="@+id/cal2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/time2"
+                android:layout_marginRight="16dp"
+                android:text="200 cals"
+                android:textSize="22sp" />
 
-    </RelativeLayout>
+        </RelativeLayout>
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
@@ -91,52 +91,52 @@
         android:layout_below="@+id/secondElement"
         android:layout_margin="8dp">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp">
-
-
-        <TextView
-            android:id="@+id/totalCalTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:text="Total Calories"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/totalCal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/totalCalTv"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
-            android:text="450"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <ProgressBar
-            android:id="@+id/pg"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/totalCal"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:progress="70" />
+            android:padding="16dp">
 
-        <TextView
-            android:id="@+id/calorie_info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/pg"
-            android:gravity="center"
-            android:text="You were short by 500 calories"
-            android:textSize="22sp" />
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/totalCalTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:text="Total Calories"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/totalCal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/totalCalTv"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:text="450"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ProgressBar
+                android:id="@+id/pg"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/totalCal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:progress="70" />
+
+            <TextView
+                android:id="@+id/calorie_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pg"
+                android:gravity="center"
+                android:text="You were short by 500 calories"
+                android:textSize="22sp" />
+
+        </RelativeLayout>
     </android.support.v7.widget.CardView>
 
 
