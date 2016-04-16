@@ -1,5 +1,6 @@
 package fettle.iiitd.com.fettle.Classes;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.parse.ParseException;
@@ -27,6 +28,22 @@ public class User {
 
     public static int getWeight() {
         return ParseUser.getCurrentUser().getInt("weight");
+    }
+
+    public static int getTargetWeight() {
+        return ParseUser.getCurrentUser().getInt("weight_target");
+    }
+
+    public static int getDailyCalorieIntake(Context context) {
+        return Utils.getPref(context, Utils.DAILY_CALORIE_KEY);
+    }
+
+    public static boolean isMale() {
+        return ParseUser.getCurrentUser().getBoolean("male");
+    }
+
+    public static String getLifestyle() {
+        return ParseUser.getCurrentUser().getString("active");
     }
 
     public static String getName() {
