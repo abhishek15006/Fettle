@@ -60,7 +60,7 @@ public class CardIntakeFragment extends Fragment {
         Date startDate = calendar.getTime();
         ParseQuery<ParseObject> parseQuery = new ParseQuery<ParseObject>("FoodIntake");
         parseQuery.whereEqualTo("user", ParseUser.getCurrentUser());
-        parseQuery.whereGreaterThan("createdAt", startDate);
+        parseQuery.whereGreaterThan("CreatedAt", startDate);
         parseQuery.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> objects, ParseException e) {

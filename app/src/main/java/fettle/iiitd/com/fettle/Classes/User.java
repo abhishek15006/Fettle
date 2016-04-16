@@ -66,7 +66,7 @@ public class User {
         List<Utils.BmiDate> bmis = new ArrayList<>();
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Track");
         query.whereEqualTo("user", ParseUser.getCurrentUser());
-        query.orderByAscending("createdAt");
+        query.orderByAscending("CreatedAt");
         List<ParseObject> lPo = new ArrayList<>();
         try {
             lPo = query.find();
@@ -95,7 +95,7 @@ public class User {
         query.fromLocalDatastore();
         query.fromPin("bmis");
         query.whereEqualTo("user", ParseUser.getCurrentUser());
-        query.orderByAscending("createdAt");
+        query.orderByAscending("CreatedAt");
         List<ParseObject> lPo = new ArrayList<>();
         try {
             lPo = query.find();
