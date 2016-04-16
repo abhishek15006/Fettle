@@ -83,7 +83,7 @@ public class RestrauntMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
             ((MenuItemViewHolder) holder).tvPrice.setText("");
             ((MenuItemViewHolder) holder).tvWalkingTime.setText(Utils.getTimeForExercise(context, User.getExercise1(), menu.getCalories()) + "Min");
             ((MenuItemViewHolder) holder).tvRunningTime.setText(Utils.getTimeForExercise(context, User.getExercise2(), menu.getCalories()) + "Min");
-            boolean recommend = true;
+            boolean recommend = false;
             if (recommend) {
                 ((MenuItemViewHolder) holder).tvRecommended.setVisibility(View.VISIBLE);
             }
