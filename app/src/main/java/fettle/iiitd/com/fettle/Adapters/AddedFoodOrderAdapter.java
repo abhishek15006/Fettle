@@ -19,7 +19,7 @@ import fettle.iiitd.com.fettle.R;
 /**
  * Created by danishgoel on 29/02/16.
  */
-public class AddedFoodOrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class AddedFoodOrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener {
 
     private List<ParseObject> messages;
     private LayoutInflater inflater = null;
@@ -47,19 +47,8 @@ public class AddedFoodOrderAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
         ((MenuItemViewHolder) holder).tvDishName.setText(messages.get(position).getString("name"));
         ((MenuItemViewHolder) holder).check.setChecked(true);
-        ((MenuItemViewHolder) holder).check.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                CheckBox c = (CheckBox) v;
-                if (c.isChecked()) {
-                    RestrauntMenuList.addedFood.add(messages.get(position));
-                } else {
-                    RestrauntMenuList.addedFood.remove(messages.get(position));
-                }
-
-            }
-        });
+        ((MenuItemViewHolder) holder).check.setTag(position);
+        ((MenuItemViewHolder) holder).check.setOnClickListener(this);
 
 
     }
@@ -69,6 +58,25 @@ public class AddedFoodOrderAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     public int getItemCount() {
         Log.d("addedfoodorder size", messages.size() + "");
         return messages.size();
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.checkbox) {
+            CheckBox x = (CheckBox) v;
+            int position = Integer.parseInt(x.getTag().toString());
+            try {
+                if (x.isChecked()) {
+                    RestrauntMenuList.addedFood.add(messages.get(position));
+                } else {
+                    RestrauntMenuList.addedFood.remove(messages.get(position));
+                }
+            } catch (Exception e) {
+
+            }
+
+
+        }
     }
 
 

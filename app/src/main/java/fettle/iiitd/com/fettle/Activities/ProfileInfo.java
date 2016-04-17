@@ -64,11 +64,19 @@ public class ProfileInfo extends AppCompatActivity implements
 
 
         try {
+
             ParseUser user = ParseUser.getCurrentUser();
             ((TextView) findViewById(R.id.weight)).setText(User.getWeight() + "kg");
             ((TextView) findViewById(R.id.height)).setText(User.getHeight() + "cm");
             ((TextView) findViewById(R.id.bmi)).setText((new DecimalFormat("#.##")).format(User.getBmi()) + "");
             ((TextView) findViewById(R.id.name)).setText(User.getName());
+
+            ((TextView) findViewById(R.id.lifestyle)).setText(User.getLifestyle());
+            if (user.getBoolean("male")) {
+                ((TextView) findViewById(R.id.gender)).setText("Male");
+            } else {
+                ((TextView) findViewById(R.id.gender)).setText("Female");
+            }
         } catch (Exception e) {
 
         }

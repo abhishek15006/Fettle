@@ -13,6 +13,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -74,6 +75,18 @@ public class CustomCalendar extends AppCompatActivity {
 
 //        CalendarHelper.convertDateToDateTime(new Date());
         new GetCalendarDataTask(this).execute();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // app icon in action bar clicked; go home
+                super.onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void initCalendar(Map<DateTime, Integer> percentages) {

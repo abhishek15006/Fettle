@@ -10,11 +10,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.viewpagerindicator.CirclePageIndicator;
-
 import fettle.iiitd.com.fettle.Fragments.CaloriesOverview;
 import fettle.iiitd.com.fettle.Fragments.ExerciesOverview;
 import fettle.iiitd.com.fettle.R;
+import fettle.iiitd.com.fettle.Utilities.SlidingTabLayout;
 
 /**
  * Created by danishgoel on 11/03/16.
@@ -60,11 +59,8 @@ public class DayOverview extends FragmentActivity {
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
 
-        CirclePageIndicator indicator = (CirclePageIndicator) findViewById(R.id.indicator);
-        indicator.setViewPager(mPager);
-        indicator.setFillColor(R.color.colorPrimaryDark);
-        if (getIntent().getBooleanExtra("exercise", false))
-            mPager.setCurrentItem(1);
+        SlidingTabLayout mSlidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
+        mSlidingTabLayout.setViewPager(mPager);
     }
 
     @Override
@@ -86,6 +82,20 @@ public class DayOverview extends FragmentActivity {
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
         public ScreenSlidePagerAdapter(FragmentManager fm) {
             super(fm);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+
+            final String[] titles;
+
+
+            titles = new String[]{"Calories", "Exercise"};
+            String viewpager_tab_title = "";
+            viewpager_tab_title = titles[position];
+            return viewpager_tab_title;
+
+
         }
 
         @Override
