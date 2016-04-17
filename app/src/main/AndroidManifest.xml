@@ -28,7 +28,6 @@
         </activity>
 
         <activity android:name=".Activities.ProfileInput" />
-        <activity android:name=".Activities.CalendarActivity" />
         <activity android:name=".Activities.CaloriesGraph" />
         <activity
             android:name=".Activities.DayOverview"
