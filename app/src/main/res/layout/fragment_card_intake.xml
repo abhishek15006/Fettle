@@ -55,7 +55,7 @@
                 <ImageView
                     android:layout_width="@dimen/breakfast_lunch_dinner"
                     android:layout_height="@dimen/breakfast_lunch_dinner"
-                    android:src="@drawable/breakfast" />
+                    android:src="@drawable/breakfast_icon" />
 
                 <TextView
                     android:id="@+id/tvBreakfast"
@@ -74,7 +74,7 @@
                 <ImageView
                     android:layout_width="@dimen/breakfast_lunch_dinner"
                     android:layout_height="@dimen/breakfast_lunch_dinner"
-                    android:src="@drawable/lunch" />
+                    android:src="@drawable/lunch_icon" />
 
                 <TextView
                     android:id="@+id/tvLunch"

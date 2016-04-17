@@ -26,7 +26,7 @@
                     android:layout_height="35dp"
                     android:layout_marginRight="8dp"
                     android:layout_toLeftOf="@id/time1"
-                    android:src="@drawable/breakfast" />
+                    android:src="@drawable/breakfast_icon" />
 
                 <TextView
                     android:id="@+id/time1"
@@ -62,7 +62,7 @@
                     android:layout_height="35dp"
                     android:layout_marginRight="8dp"
                     android:layout_toLeftOf="@id/time2"
-                    android:src="@drawable/lunch" />
+                    android:src="@drawable/lunch_icon" />
 
                 <TextView
                     android:id="@+id/time2"

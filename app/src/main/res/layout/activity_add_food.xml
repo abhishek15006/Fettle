@@ -25,7 +25,8 @@
                 android:id="@+id/etSearch"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:hint="What did you eat today?" />
+                android:hint="What did you eat today?"
+                android:imeOptions="actionSearch" />
 
             <ImageView
                 android:layout_width="25dp"

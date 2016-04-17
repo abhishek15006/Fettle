@@ -179,4 +179,6 @@ public class RestrauntMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
 //            ivAskerPicture = (ImageView) itemView.findViewById(R.id.askerPicture);
         }
     }
+
+
 }

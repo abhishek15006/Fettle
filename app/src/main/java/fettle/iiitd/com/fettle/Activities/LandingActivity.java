@@ -140,7 +140,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         });
 
         //TODO:Manan set these values
-        ((TextView) findViewById(R.id.calorie_intake)).setText("");
+        ((TextView) findViewById(R.id.calorie_intake)).setText(User.getDailyCalorieIntake(this) + "");
         ((TextView) findViewById(R.id.ideal_calorie)).setText("");
 
         /*TODO you get stepdata class object and exercisedata class object in fitlog arraylist.
