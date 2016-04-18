@@ -61,6 +61,10 @@ public class DayOverview extends FragmentActivity {
 
         SlidingTabLayout mSlidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
         mSlidingTabLayout.setViewPager(mPager);
+
+        if (getIntent().getBooleanExtra("exercise", false))
+            mPager.setCurrentItem(1);
+
     }
 
     @Override

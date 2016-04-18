@@ -139,9 +139,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
 
-        //TODO:Manan set these values
-        ((TextView) findViewById(R.id.calorie_intake)).setText(User.getDailyCalorieIntake(this) + "");
-        ((TextView) findViewById(R.id.ideal_calorie)).setText("");
+        ((TextView) findViewById(R.id.ideal_calorie)).setText(User.getDailyCalorieIntake(this) + "");
 
         /*TODO you get stepdata class object and exercisedata class object in fitlog arraylist.
         Check if it shows correctly,I would have checked but there is no data on mine ,
@@ -388,6 +386,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
         fragment3.updateCalories(breakfast, lunch, dinner, Utils.getPref(this, Utils.DAILY_CALORIE_KEY));
         fragment4.updateNutrients(fiber, fats, carbs, proteins);
+        setTodaysCalorieIntake(breakfast + lunch + dinner);
     }
 
     private ParseQuery<ParseObject> getParseQueryForFoodDownload() {
@@ -539,6 +538,10 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         ((TextView) findViewById(R.id.tvHeight)).setText(ParseUser.getCurrentUser().getInt("height") + "cm");
         ((TextView) findViewById(R.id.tvWeight)).setText(ParseUser.getCurrentUser().getInt("weight") + "kg");
         super.onResume();
+    }
+
+    public void setTodaysCalorieIntake(int cal) {
+        ((TextView) findViewById(R.id.calorie_intake)).setText(cal + "");
     }
 
     public interface AddedListener {
