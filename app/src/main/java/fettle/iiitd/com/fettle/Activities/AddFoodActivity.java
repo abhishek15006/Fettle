@@ -54,7 +54,7 @@ public class AddFoodActivity extends AppCompatActivity {
     List<String> dinnerDishIds = Arrays.asList("0syjCV7wxK", "6t940cX36M", "OCkjFr00TA", "HyXKMqXFSF", "CB2BhxEuhc", "QF4uQVvRC4", "ewJlWDKmLx", "gPu9VXjIHm", "FBrFrejA0S", "zbwWGX516h");
 
     private List<String> meals = Arrays.asList(new String[]{"Breakfast", "Lunch", "Dinner"});
-    private int[] drawables = new int[]{R.drawable.breakfast, R.drawable.lunch, R.drawable.dinner};
+    private int[] drawables = new int[]{R.drawable.breakfast_icon, R.drawable.lunch_icon, R.drawable.dinner};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

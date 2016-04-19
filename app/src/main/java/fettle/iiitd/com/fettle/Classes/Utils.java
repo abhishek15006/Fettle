@@ -1,7 +1,13 @@
 package fettle.iiitd.com.fettle.Classes;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.media.RingtoneManager;
+import android.support.v4.app.NotificationCompat;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -13,6 +19,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import fettle.iiitd.com.fettle.Activities.LandingActivity;
 import fettle.iiitd.com.fettle.R;
 
 /**
@@ -187,6 +194,35 @@ public class Utils {
         return (int) ((10f / exercise10) * (float) durationMin * 60f);
     }
 
+    public static void sendNotification(Context context) throws Exception {
+        int mNotificationId = 1;
+        String message = "You forgot to add your meal.";
+
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+                .setSmallIcon(R.drawable.logo_small)//ic_launcher)
+                .setContentTitle("Fettle")
+                .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
+                .setLights(Color.BLUE, 700, 2200)
+                .setVibrate(new long[]{300, 300, 300, 300})
+                .setOnlyAlertOnce(true)
+                .setContentText(message)
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(message));
+
+        Intent intent = new Intent(context, LandingActivity.class);
+
+        PendingIntent resultPendingIntent = PendingIntent.getActivity(
+                context,
+                0,
+                intent,
+                PendingIntent.FLAG_UPDATE_CURRENT
+        );
+        mBuilder.setContentIntent(resultPendingIntent);
+        mBuilder.setAutoCancel(true);
+        NotificationManager mNotifyMgr =
+                (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotifyMgr.notify(mNotificationId, mBuilder.build());
+    }
+
     public static class BmiDate {
         public Date date;
         public float bmi;
@@ -225,5 +261,6 @@ public class Utils {
                     '}';
         }
     }
+
 
 }

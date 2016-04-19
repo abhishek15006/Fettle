@@ -62,7 +62,7 @@
                     android:id="@+id/imMeal"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:src="@drawable/breakfast" />
+                    android:src="@drawable/breakfast_icon" />
 
                 <TextView
                     android:id="@+id/tvMeal"
