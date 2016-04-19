@@ -159,6 +159,7 @@ public class ProfileInfo extends AppCompatActivity implements
 
         BarDataSet set1 = new BarDataSet(yVals1, "BMI");
         set1.setBarSpacePercent(35f);
+        set1.setColor(R.color.green);
 
         ArrayList<IBarDataSet> dataSets = new ArrayList<IBarDataSet>();
         dataSets.add(set1);
